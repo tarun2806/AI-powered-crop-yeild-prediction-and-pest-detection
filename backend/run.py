@@ -1,3 +1,4 @@
+import os
 from app import create_app, db
 from flask_migrate import Migrate
 from app.services.mqtt_service import start_mqtt_listener
@@ -5,8 +6,9 @@ from app.services.mqtt_service import start_mqtt_listener
 app = create_app()
 migrate = Migrate(app, db)
 
-# 📡 Start MQTT IoT Listener in background
-start_mqtt_listener(app)
+# 📡 Start MQTT IoT Listener (Only if NOT on Vercel)
+if os.environ.get('VERCEL') != '1':
+    start_mqtt_listener(app)
 
 
 if __name__ == '__main__':
