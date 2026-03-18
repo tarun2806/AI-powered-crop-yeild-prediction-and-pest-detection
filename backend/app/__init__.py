@@ -21,16 +21,9 @@ def create_app(config_class=Config):
     CORS(app)
 
     # Logging Configuration
-    if not os.path.exists('logs'):
-        os.mkdir('logs')
-    file_handler = RotatingFileHandler('logs/agro_api.log', maxBytes=10240, backupCount=10)
-    file_handler.setFormatter(logging.Formatter(
-        '%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'
-    ))
-    file_handler.setLevel(logging.INFO)
-    app.logger.addHandler(file_handler)
+    # (Disabled file-based logging for Vercel compatibility)
     app.logger.setLevel(logging.INFO)
-    app.logger.info('AgroSaaS API Startup')
+    app.logger.info('AgroSaaS API Startup (Vercel Optimized)')
 
     # Register Blueprints
     from .api.auth import auth_bp
