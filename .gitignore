@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv*/
+.venv/
+.env
+
+# Models (Too large for standard GitHub)
+backend/app/ai/*.h5
+backend/app/ai/*.pkl
+
+# Logs & Data
+backend/logs/
+backend/uploads/
+instance/
+.DS_Store
+
+# Monitoring & Build
+prometheus_data/
+grafana_data/
+node_modules/
+dist/
+build/

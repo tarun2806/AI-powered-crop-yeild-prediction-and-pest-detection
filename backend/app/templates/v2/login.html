@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AgroSaaS | Security Access</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+      body { background-color: #030705; color: #f8fafc; font-family: 'Inter', sans-serif; overflow: hidden; }
+      .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.08); }
+      .glow-emerald { filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0.3)); }
+      .gradient-text { background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+      .animate-drift { animation: drift 10s ease-in-out infinite; }
+      @keyframes drift { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(20px, 10px); } }
+    </style>
+  </head>
+  <body class="flex items-center justify-center h-screen relative">
+    <!-- Animated background patterns -->
+    <div class="fixed top-[-20%] left-[-10%] w-[600px] h-[600px] bg-emerald-600/10 rounded-full blur-[150px] animate-drift"></div>
+    <div class="fixed bottom-[-10%] right-[-5%] w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[150px] animate-drift" style="animation-delay: -5s;"></div>
+
+    <div class="z-10 w-full max-w-md p-6">
+      <div class="glass p-10 rounded-[40px] shadow-2xl space-y-8 relative overflow-hidden backdrop-blur-3xl border-white/5">
+        <!-- Logo -->
+        <div class="flex flex-col items-center">
+            <div class="w-16 h-16 bg-agri-accent bg-[#10b981] rounded-2xl flex items-center justify-center glow-emerald mb-4">
+              <i class="fa-solid fa-leaf text-white text-3xl"></i>
+            </div>
+            <h1 class="text-3xl font-black gradient-text">AgroSaaS</h1>
+            <p class="text-slate-500 text-xs tracking-[0.2em] font-bold uppercase mt-1">Enterprise Access</p>
+        </div>
+
+        <form id="loginForm" class="space-y-6">
+          <div class="space-y-2">
+            <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Secure Email</label>
+            <div class="relative">
+              <i class="fa-solid fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
+              <input type="email" required placeholder="name@farm.io" class="w-full bg-white/5 border border-white/10 p-4 pl-12 rounded-2xl focus:outline-none focus:border-emerald-500/50 transition text-sm" />
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Access Credentials</label>
+            <div class="relative">
+              <i class="fa-solid fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
+              <input type="password" required placeholder="••••••••" class="w-full bg-white/5 border border-white/10 p-4 pl-12 rounded-2xl focus:outline-none focus:border-emerald-500/50 transition text-sm" />
+            </div>
+          </div>
+
+          <button type="submit" class="w-full py-4 bg-emerald-500 hover:bg-emerald-400 text-emerald-950 font-black rounded-2xl shadow-lg shadow-emerald-500/20 transition-all active:scale-95 uppercase tracking-widest text-sm">
+            INITIALIZE SESSION
+          </button>
+        </form>
+
+        <div class="text-center pt-4">
+          <p class="text-xs text-slate-500">First time in the field? <a href="/register" class="text-emerald-500 font-bold hover:underline">CREATE NODE ID</a></p>
+        </div>
+      </div>
+      
+      <!-- Footer Tags -->
+      <div class="mt-8 flex justify-center space-x-6">
+        <span class="text-[9px] font-bold text-slate-600 uppercase tracking-tighter"><i class="fa-solid fa-cloud mr-1"></i> AWS Region: Asia-South</span>
+        <span class="text-[9px] font-bold text-slate-600 uppercase tracking-tighter"><i class="fa-solid fa-shield-halved mr-1"></i> 256-bit AES Encryption</span>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById('loginForm').onsubmit = e => {
+        e.preventDefault();
+        // Simulation for complete UI feel
+        const btn = e.target.querySelector('button');
+        btn.innerHTML = '<i class="fa-solid fa-circle-notch animate-spin mr-2"></i> AUTHENTICATING...';
+        setTimeout(() => {
+          location.href = "/";
+        }, 1500);
+      };
+    </script>
+  </body>
+</html>
