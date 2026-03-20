@@ -1,0 +1,11 @@
+-r requirements.txt
+joblib
+pandas
+numpy
+tensorflow
+pillow
+xgboost
+scipy
+scikit-learn
+matplotlib
+seaborn
